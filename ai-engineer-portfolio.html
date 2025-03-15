@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Engineer Portfolio</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary: #8b5cf6;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: var(--primary-dark);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--dark);
+            color: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--light-gray);
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0;
+            background: linear-gradient(to right, var(--dark), #2d3748);
+            color: white;
+        }
+        
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: var(--light-gray);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -0.75rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-text {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .skills {
+            margin-top: 2rem;
+        }
+        
+        .skills h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        
+        .skill-tag {
+            background-color: var(--light-gray);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        /* Projects Section */
+        .projects {
+            padding: 5rem 0;
+            background-color: #f1f5f9;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background-color: var(--gray);
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .project-tag {
+            background-color: var(--light-gray);
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.25rem;
+        }
+        
+        .project-links a {
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        /* Experience Section */
+        .experience {
+            padding: 5rem 0;
+        }
+        
+        .timeline {
+            margin-top: 3rem;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background-color: var(--light-gray);
+        }
+        
+        .timeline-item {
+            padding-left: 2rem;
+            padding-bottom: 2rem;
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--primary);
+        }
+        
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        
+        .timeline-date {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .timeline-company {
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background-color: #f1f5f9;
+        }
+        
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .contact-item-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.75rem;
+        }
+        
+        .contact-form {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--light-gray);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-link {
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: #2d3748;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+        }
+        
+        /* Social Profiles in About */
+        .social-profiles {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        
+        .social-profile-link {
+            text-decoration: none;
+        }
+        
+        .social-icon {
+            width: 2rem;
+            height: 2rem;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.875rem;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+            background-color: var(--primary-dark);
+        }
+        
+        /* Certifications Section */
+        .certifications {
+            padding: 5rem 0;
+            background-color: #f1f5f9;
+        }
+        
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .cert-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .cert-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .cert-logo {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            background-color: #f8fafc;
+        }
+        
+        .cert-logo div {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .cert-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .cert-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cert-issuer {
+            font-size: 0.875rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        
+        .cert-date {
+            font-size: 0.875rem;
+            color: var(--gray);
+            margin-top: auto;
+        }
+        
+        .cert-link {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 5rem 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            font-size: 4rem;
+            color: var(--light-gray);
+            font-family: Georgia, serif;
+            line-height: 1;
+            opacity: 0.5;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-avatar {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--gray);
+        }
+        
+        .testimonial-info h4 {
+            margin-bottom: 0.25rem;
+        }
+        
+        .testimonial-position {
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+        
+        .testimonial-source {
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: var(--gray);
+        }
+        
+        /* Publications Section */
+        .publications {
+            padding: 5rem 0;
+            background-color: #f1f5f9;
+        }
+        
+        .pub-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .pub-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .pub-source {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: var(--light-gray);
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .pub-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .pub-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+            color: var(--gray);
+            margin-top: 1rem;
+        }
+        
+        .pub-date {
+            font-style: italic;
+        }
+        
+        .pub-metrics {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .pub-metric {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.125rem;
+            }
+            
+            .nav-links {
+                gap: 0.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .timeline::before {
+                left: 1rem;
+            }
+            
+            .timeline-item {
+                padding-left: 3rem;
+            }
+            
+            .timeline-item::before {
+                left: 0.96rem;
+            }
+            
+            .cert-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="javascript:void(0)" class="logo">Alex Chen</a>
+                <div class="nav-links">
+                    <a href="#about" onclick="scrollToSection('about')">About</a>
+                    <a href="#projects" onclick="scrollToSection('projects')">Projects</a>
+                    <a href="#experience" onclick="scrollToSection('experience')">Experience</a>
+                    <a href="#publications" onclick="scrollToSection('publications')">Publications</a>
+                    <a href="#certifications" onclick="scrollToSection('certifications')">Certifications</a>
+                    <a href="#testimonials" onclick="scrollToSection('testimonials')">Testimonials</a>
+                    <a href="#contact" onclick="scrollToSection('contact')">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>AI Engineer & Machine Learning Specialist</h1>
+                <p>Building intelligent systems that solve real-world problems</p>
+                <a href="#contact" class="btn">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content fade-in">
+                <div class="about-image">
+                    <img src="/api/placeholder/400/320" alt="AI Engineer Profile Photo">
+                    <div class="social-profiles">
+                        <a href="#" class="social-profile-link" title="GitHub">
+                            <div class="social-icon">G</div>
+                        </a>
+                        <a href="#" class="social-profile-link" title="LinkedIn">
+                            <div class="social-icon">L</div>
+                        </a>
+                        <a href="#" class="social-profile-link" title="Google Scholar">
+                            <div class="social-icon">S</div>
+                        </a>
+                        <a href="#" class="social-profile-link" title="Medium">
+                            <div class="social-icon">M</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <p>Hi, I'm Alex Chen, an AI Engineer with 5+ years of experience developing machine learning solutions for enterprise applications. I specialize in computer vision, natural language processing, and reinforcement learning.</p>
+                    <p>My passion lies in creating AI systems that are not only technically robust but also ethical and user-focused. I believe in building technology that augments human capabilities rather than replacing them.</p>
+                    <p>When I'm not training models or tuning hyperparameters, you can find me contributing to open-source projects, speaking at tech conferences, or mentoring aspiring AI practitioners.</p>
+                    
+                    <div class="skills">
+                        <h3>Technical Skills</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">Deep Learning</span>
+                            <span class="skill-tag">Computer Vision</span>
+                            <span class="skill-tag">NLP</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">MLOps</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Kubernetes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <div class="project-image" style="background-color: #4f46e5;"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Intelligent Recommendation Engine</h3>
+                        <p>Developed a content-based and collaborative filtering recommendation system that increased user engagement by 32% for an e-commerce platform.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Machine Learning</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">AWS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="javascript:void(0)">View Case Study →</a>
+                            <a href="javascript:void(0)">GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in">
+                    <div class="project-image" style="background-color: #8b5cf6;"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Computer Vision for Healthcare</h3>
+                        <p>Built a deep learning system that assists radiologists in detecting anomalies in X-ray images with 94% accuracy, reducing diagnosis time by 40%.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Computer Vision</span>
+                            <span class="project-tag">PyTorch</span>
+                            <span class="project-tag">Healthcare AI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="javascript:void(0)">View Demo →</a>
+                            <a href="javascript:void(0)">Research Paper →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in">
+                    <div class="project-image" style="background-color: #6366f1;"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">NLP-Powered Customer Support</h3>
+                        <p>Implemented a conversational AI system that handles 65% of customer inquiries automatically, improving response time and customer satisfaction.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">NLP</span>
+                            <span class="project-tag">TensorFlow</span>
+                            <span class="project-tag">GCP</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="javascript:void(0)">View Case Study →</a>
+                            <a href="javascript:void(0)">Live Demo →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-date">2022 - Present</div>
+                    <h3 class="timeline-title">Senior AI Engineer</h3>
+                    <div class="timeline-company">TechInnovate AI</div>
+                    <p>Lead a team of ML engineers in developing and deploying custom AI solutions for enterprise clients. Architected and implemented a distributed training pipeline that reduced model training time by 60%.</p>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-date">2019 - 2022</div>
+                    <h3 class="timeline-title">Machine Learning Engineer</h3>
+                    <div class="timeline-company">DataVision Corp</div>
+                    <p>Designed and implemented computer vision algorithms for quality control in manufacturing. Developed an MLOps pipeline for continuous integration and deployment of ML models.</p>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-date">2017 - 2019</div>
+                    <h3 class="timeline-title">AI Research Scientist</h3>
+                    <div class="timeline-company">InnovateAI Research Lab</div>
+                    <p>Conducted research on reinforcement learning algorithms for robotic control. Published 3 papers in top-tier AI conferences and contributed to open-source libraries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="publications">
+        <div class="container">
+            <h2 class="section-title">Publications & Articles</h2>
+            
+            <div class="pub-card fade-in">
+                <span class="pub-source">Google Research</span>
+                <h3 class="pub-title">Advances in Self-Supervised Learning for Time-Series Data</h3>
+                <p>A novel approach to pre-training deep learning models on unlabeled time-series data, achieving state-of-the-art results on multiple downstream tasks with minimal labeled examples.</p>
+                <div class="pub-meta">
+                    <span class="pub-date">Published: November 2023</span>
+                    <div class="pub-metrics">
+                        <span class="pub-metric">Citations: 47</span>
+                        <span class="pub-metric">Downloads: 1,243</span>
+                    </div>
+                </div>
+                <a href="javascript:void(0)" class="cert-link">Read Paper →</a>
+            </div>
+            
+            <div class="pub-card fade-in">
+                <span class="pub-source">Medium</span>
+                <h3 class="pub-title">Implementing Transformer Architectures for Production: Lessons Learned</h3>
+                <p>A practical guide to optimizing transformer-based models for production environments, covering techniques for memory efficiency, inference speed, and model pruning.</p>
+                <div class="pub-meta">
+                    <span class="pub-date">Published: March 2023</span>
+                    <div class="pub-metrics">
+                        <span class="pub-metric">Reads: 15.3K</span>
+                        <span class="pub-metric">Claps: 4.2K</span>
+                    </div>
+                </div>
+                <a href="javascript:void(0)" class="cert-link">Read Article →</a>
+            </div>
+            
+            <div class="pub-card fade-in">
+                <span class="pub-source">Medium</span>
+                <h3 class="pub-title">Ethical Considerations in Deploying AI Systems: A Framework</h3>
+                <p>An exploration of the ethical challenges in AI deployment and a proposed framework for evaluating AI systems across dimensions of fairness, accountability, transparency, and privacy.</p>
+                <div class="pub-meta">
+                    <span class="pub-date">Published: August 2022</span>
+                    <div class="pub-metrics">
+                        <span class="pub-metric">Reads: 22.7K</span>
+                        <span class="pub-metric">Claps: 5.8K</span>
+                    </div>
+                </div>
+                <a href="javascript:void(0)" class="cert-link">Read Article →</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="cert-grid">
+                <div class="cert-card fade-in">
+                    <div class="cert-logo">
+                        <div>GCP</div>
+                    </div>
+                    <div class="cert-content">
+                        <h3 class="cert-name">Professional Machine Learning Engineer</h3>
+                        <div class="cert-issuer">Google Cloud</div>
+                        <p>Validates expertise in designing, building, and productionizing ML models to solve business challenges using Google Cloud technologies.</p>
+                        <div class="cert-date">Issued: Jan 2023 • Expires: Jan 2026</div>
+                        <a href="javascript:void(0)" class="cert-link">View Certificate →</a>
+                    </div>
+                </div>
+                
+                <div class="cert-card fade-in">
+                    <div class="cert-logo">
+                        <div>AWS</div>
+                    </div>
+                    <div class="cert-content">
+                        <h3 class="cert-name">Certified Machine Learning Specialty</h3>
+                        <div class="cert-issuer">Amazon Web Services</div>
+                        <p>Demonstrates advanced ability to design, implement, deploy, and maintain ML solutions for given business problems.</p>
+                        <div class="cert-date">Issued: Mar 2022 • Expires: Mar 2025</div>
+                        <a href="#" class="cert-link">View Certificate →</a>
+                    </div>
+                </div>
+                
+                <div class="cert-card fade-in">
+                    <div class="cert-logo">
+                        <div>DS</div>
+                    </div>
+                    <div class="cert-content">
+                        <h3 class="cert-name">Deep Learning Specialization</h3>
+                        <div class="cert-issuer">DeepLearning.AI</div>
+                        <p>Comprehensive specialization covering neural networks, optimization algorithms, CNN, RNN, and transformers.</p>
+                        <div class="cert-date">Issued: Aug 2020</div>
+                        <a href="#" class="cert-link">View Certificate →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Colleagues Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Alex is one of the most talented ML engineers I've had the pleasure to work with. Their ability to quickly grasp complex problems and implement elegant solutions is outstanding. They not only deliver high-quality work but also elevate the entire team's capabilities."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">JL</div>
+                            <div class="testimonial-info">
+                                <h4>Dr. Jennifer Lee</h4>
+                                <div class="testimonial-position">Director of AI, TechInnovate AI</div>
+                                <div class="testimonial-source">Recommendation via LinkedIn</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Working with Alex on our computer vision project was an incredible experience. Their technical expertise in deep learning architectures and practical approach to deployment challenges saved us months of development time. But what truly sets Alex apart is their commitment to ethical AI development."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">MR</div>
+                            <div class="testimonial-info">
+                                <h4>Michael Rodriguez</h4>
+                                <div class="testimonial-position">Lead Data Scientist, HealthTech Solutions</div>
+                                <div class="testimonial-source">Recommendation via LinkedIn</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Alex mentored me when I was transitioning into AI engineering, and I couldn't have asked for a better guide. They have a rare gift for making complex concepts accessible without oversimplification. Their technical brilliance is matched by their patience and genuine desire to help others succeed in the field."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">SP</div>
+                            <div class="testimonial-info">
+                                <h4>Sarah Patel</h4>
+                                <div class="testimonial-position">ML Engineer, DataVision Corp</div>
+                                <div class="testimonial-source">Recommendation via LinkedIn</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <div class="contact-item">
+                        <div class="contact-item-icon">@</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>alex.chen@example.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">L</div>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <p>linkedin.com/in/alex-chen-ai</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">L</div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>San Francisco, CA</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form fade-in">
+                    <form>
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="javascript:void(0)" class="social-link">G</a>
+                <a href="javascript:void(0)" class="social-link">L</a>
+                <a href="javascript:void(0)" class="social-link">T</a>
+                <a href="javascript:void(0)" class="social-link">M</a>
+            </div>
+            <p>&copy; 2025 Alex Chen. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            function checkFade() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            // Set initial styles
+            fadeElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            });
+            
+            // Check on load
+            checkFade();
+            
+            // Check on scroll
+            window.addEventListener('scroll', checkFade);
+        });
+
+        // Smooth scrolling for section navigation
+        function scrollToSection(sectionId) {
+            event.preventDefault();
+            const section = document.getElementById(sectionId);
+            if (section) {
+                window.scrollTo({
+                    top: section.offsetTop - 80, // Offset for the fixed header
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Handle hero button click
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactButton = document.querySelector('.hero .btn');
+            if (contactButton) {
+                contactButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    scrollToSection('contact');
+                });
+            }
+        });
+
+        // Form submission handling
+        const contactForm = document.querySelector('.contact-form form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const nameInput = document.getElementById('name');
+                const emailInput = document.getElementById('email');
+                const messageInput = document.getElementById('message');
+                
+                if (nameInput.value && emailInput.value && messageInput.value) {
+                    alert('Thanks for your message! This is a demo form, so no message was actually sent.');
+                    contactForm.reset();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
