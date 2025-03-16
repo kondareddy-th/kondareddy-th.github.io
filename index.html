@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Engineer Portfolio</title>
+    <title>Kondareddy Thanigundala - AI Engineer Portfolio</title>
     <style>
         :root {
             --primary: #4f46e5;
@@ -19,7 +19,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
         
         body {
@@ -88,6 +88,16 @@
         
         .nav-links a:hover {
             color: white;
+        }
+        
+        /* Mobile menu styles */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
         
         /* Hero Section */
@@ -327,10 +337,50 @@
             margin-bottom: 0.75rem;
         }
         
+        /* Publications Section */
+        .publications {
+            padding: 5rem 0;
+            background-color: #f1f5f9;
+        }
+        
+        .pub-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .pub-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pub-source {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: var(--light-gray);
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .pub-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .pub-date {
+            font-size: 0.875rem;
+            color: var(--gray);
+            margin-top: 0.5rem;
+            display: block;
+        }
+        
         /* Contact Section */
         .contact {
             padding: 5rem 0;
-            background-color: #f1f5f9;
         }
         
         .contact-content {
@@ -428,260 +478,65 @@
             background-color: var(--primary);
         }
         
-        /* Social Profiles in About */
-        .social-profiles {
-            display: flex;
-            justify-content: center;
-            gap: 0.75rem;
-            margin-top: 1rem;
-        }
-        
-        .social-profile-link {
-            text-decoration: none;
-        }
-        
-        .social-icon {
-            width: 2rem;
-            height: 2rem;
-            background-color: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 0.875rem;
-            transition: transform 0.3s, background-color 0.3s;
-        }
-        
-        .social-icon:hover {
-            transform: translateY(-3px);
-            background-color: var(--primary-dark);
-        }
-        
-        /* Certifications Section */
-        .certifications {
-            padding: 5rem 0;
-            background-color: #f1f5f9;
-        }
-        
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .cert-card {
-            background-color: white;
-            border-radius: 0.5rem;
-            overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            display: flex;
+        /* Mobile Menu Styles */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--dark);
+            z-index: 999;
             flex-direction: column;
-        }
-        
-        .cert-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .cert-logo {
-            height: 80px;
-            display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1rem;
-            background-color: #f8fafc;
-        }
-        
-        .cert-logo div {
-            width: 60px;
-            height: 60px;
-            background-color: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-        
-        .cert-content {
-            padding: 1.5rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .cert-name {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        .cert-issuer {
-            font-size: 0.875rem;
-            color: var(--gray);
-            margin-bottom: 1rem;
-        }
-        
-        .cert-date {
-            font-size: 0.875rem;
-            color: var(--gray);
-            margin-top: auto;
-        }
-        
-        .cert-link {
-            display: inline-block;
-            margin-top: 1rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-        
-        /* Testimonials Section */
-        .testimonials {
-            padding: 5rem 0;
-        }
-        
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .testimonial-card {
-            background-color: white;
-            border-radius: 0.5rem;
             padding: 2rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            position: relative;
         }
         
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            font-size: 4rem;
-            color: var(--light-gray);
-            font-family: Georgia, serif;
-            line-height: 1;
-            opacity: 0.5;
-        }
-        
-        .testimonial-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-        }
-        
-        .testimonial-author {
+        .mobile-nav.active {
             display: flex;
-            align-items: center;
         }
         
-        .testimonial-avatar {
-            width: 3rem;
-            height: 3rem;
-            border-radius: 50%;
-            background-color: var(--light-gray);
-            margin-right: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: var(--gray);
-        }
-        
-        .testimonial-info h4 {
-            margin-bottom: 0.25rem;
-        }
-        
-        .testimonial-position {
-            font-size: 0.875rem;
-            color: var(--gray);
-        }
-        
-        .testimonial-source {
-            margin-top: 0.5rem;
-            font-size: 0.75rem;
-            color: var(--gray);
-        }
-        
-        /* Publications Section */
-        .publications {
-            padding: 5rem 0;
-            background-color: #f1f5f9;
-        }
-        
-        .pub-card {
-            background-color: white;
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            margin-bottom: 1.5rem;
-            transition: transform 0.3s;
-        }
-        
-        .pub-card:hover {
-            transform: translateY(-3px);
-        }
-        
-        .pub-source {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background-color: var(--light-gray);
-            border-radius: 1rem;
-            font-size: 0.75rem;
-            margin-bottom: 0.75rem;
-        }
-        
-        .pub-title {
+        .mobile-nav a {
+            color: white;
             font-size: 1.25rem;
-            margin-bottom: 0.75rem;
+            font-weight: 500;
+            transition: color 0.3s;
         }
         
-        .pub-meta {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.875rem;
-            color: var(--gray);
-            margin-top: 1rem;
+        .mobile-nav a:hover {
+            color: var(--primary);
         }
         
-        .pub-date {
-            font-style: italic;
-        }
-        
-        .pub-metrics {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .pub-metric {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
+        .close-menu-btn {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
         
         /* Responsive Styles */
         @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
             .hero h1 {
                 font-size: 2.5rem;
             }
             
             .hero p {
                 font-size: 1.125rem;
-            }
-            
-            .nav-links {
-                gap: 0.5rem;
-                font-size: 0.9rem;
             }
             
             .about-content {
@@ -703,11 +558,6 @@
             .timeline-item::before {
                 left: 0.96rem;
             }
-            
-            .cert-grid,
-            .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
         }
         
         @media (max-width: 480px) {
@@ -723,22 +573,6 @@
                 grid-template-columns: 1fr;
             }
         }
-        
-        /* Animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .fade-in {
-            animation: fadeIn 0.6s ease-out forwards;
-        }
     </style>
 </head>
 <body>
@@ -746,27 +580,36 @@
     <header>
         <div class="container">
             <nav>
-                <a href="javascript:void(0)" class="logo">Alex Chen</a>
+                <a href="#hero" onclick="smoothScroll('hero'); return false;" class="logo">Kondareddy Thanigundala</a>
                 <div class="nav-links">
-                    <a href="#about" onclick="scrollToSection('about')">About</a>
-                    <a href="#projects" onclick="scrollToSection('projects')">Projects</a>
-                    <a href="#experience" onclick="scrollToSection('experience')">Experience</a>
-                    <a href="#publications" onclick="scrollToSection('publications')">Publications</a>
-                    <a href="#certifications" onclick="scrollToSection('certifications')">Certifications</a>
-                    <a href="#testimonials" onclick="scrollToSection('testimonials')">Testimonials</a>
-                    <a href="#contact" onclick="scrollToSection('contact')">Contact</a>
+                    <a href="#about" onclick="smoothScroll('about'); return false;">About</a>
+                    <a href="#projects" onclick="smoothScroll('projects'); return false;">Projects</a>
+                    <a href="#experience" onclick="smoothScroll('experience'); return false;">Experience</a>
+                    <a href="#publications" onclick="smoothScroll('publications'); return false;">Publications</a>
+                    <a href="#contact" onclick="smoothScroll('contact'); return false;">Contact</a>
                 </div>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
             </nav>
         </div>
     </header>
     
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobile-nav">
+        <button class="close-menu-btn" onclick="toggleMobileMenu()">✕</button>
+        <a href="#about" onclick="smoothScroll('about'); toggleMobileMenu(); return false;">About</a>
+        <a href="#projects" onclick="smoothScroll('projects'); toggleMobileMenu(); return false;">Projects</a>
+        <a href="#experience" onclick="smoothScroll('experience'); toggleMobileMenu(); return false;">Experience</a>
+        <a href="#publications" onclick="smoothScroll('publications'); toggleMobileMenu(); return false;">Publications</a>
+        <a href="#contact" onclick="smoothScroll('contact'); toggleMobileMenu(); return false;">Contact</a>
+    </div>
+    
     <!-- Hero Section -->
-    <section class="hero">
+    <section id="hero" class="hero">
         <div class="container">
-            <div class="hero-content fade-in">
+            <div class="hero-content">
                 <h1>AI Engineer & Machine Learning Specialist</h1>
-                <p>Building intelligent systems that solve real-world problems</p>
-                <a href="#contact" class="btn">Get in Touch</a>
+                <p>Building intelligent agentic systems with expertise in LLMs and data analytics</p>
+                <a href="#contact" onclick="smoothScroll('contact'); return false;" class="btn">Get in Touch</a>
             </div>
         </div>
     </section>
@@ -775,43 +618,30 @@
     <section id="about" class="about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
-            <div class="about-content fade-in">
+            <div class="about-content">
                 <div class="about-image">
-                    <img src="/api/placeholder/400/320" alt="AI Engineer Profile Photo">
-                    <div class="social-profiles">
-                        <a href="#" class="social-profile-link" title="GitHub">
-                            <div class="social-icon">G</div>
-                        </a>
-                        <a href="#" class="social-profile-link" title="LinkedIn">
-                            <div class="social-icon">L</div>
-                        </a>
-                        <a href="#" class="social-profile-link" title="Google Scholar">
-                            <div class="social-icon">S</div>
-                        </a>
-                        <a href="#" class="social-profile-link" title="Medium">
-                            <div class="social-icon">M</div>
-                        </a>
-                    </div>
+                    <img src="/api/placeholder/400/320" alt="Kondareddy Thanigundala">
                 </div>
                 <div class="about-text">
-                    <p>Hi, I'm Alex Chen, an AI Engineer with 5+ years of experience developing machine learning solutions for enterprise applications. I specialize in computer vision, natural language processing, and reinforcement learning.</p>
-                    <p>My passion lies in creating AI systems that are not only technically robust but also ethical and user-focused. I believe in building technology that augments human capabilities rather than replacing them.</p>
-                    <p>When I'm not training models or tuning hyperparameters, you can find me contributing to open-source projects, speaking at tech conferences, or mentoring aspiring AI practitioners.</p>
+                    <p>Hi, I'm Kondareddy Thanigundala, an AI Engineer with experience in developing machine learning solutions and agentic AI systems for enterprise applications. I currently work at Bank of New York Mellon, where I design and develop AI agent frameworks using GPT and Claude LLMs.</p>
+                    <p>I hold a Master of Science in Business Analytics from Carnegie Mellon University's Tepper School of Business, where I gained expertise in data management, optimization, machine learning, and analytics across various business domains.</p>
+                    <p>My passion lies in creating intelligent AI systems that solve real-world problems efficiently. I have experience in designing agentic frameworks, prompt engineering, and deploying LLM-based solutions in production environments.</p>
                     
                     <div class="skills">
                         <h3>Technical Skills</h3>
                         <div class="skill-tags">
                             <span class="skill-tag">Machine Learning</span>
-                            <span class="skill-tag">Deep Learning</span>
-                            <span class="skill-tag">Computer Vision</span>
-                            <span class="skill-tag">NLP</span>
+                            <span class="skill-tag">LLMs</span>
+                            <span class="skill-tag">Agentic AI</span>
+                            <span class="skill-tag">RAG</span>
                             <span class="skill-tag">Python</span>
+                            <span class="skill-tag">SQL</span>
                             <span class="skill-tag">TensorFlow</span>
-                            <span class="skill-tag">PyTorch</span>
-                            <span class="skill-tag">MLOps</span>
-                            <span class="skill-tag">AWS</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">Kubernetes</span>
+                            <span class="skill-tag">Scikit-learn</span>
+                            <span class="skill-tag">Autogen</span>
+                            <span class="skill-tag">Langchain</span>
+                            <span class="skill-tag">LangGraph</span>
+                            <span class="skill-tag">MongoDB</span>
                         </div>
                     </div>
                 </div>
@@ -824,53 +654,53 @@
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
-                <div class="project-card fade-in">
+                <div class="project-card">
                     <div class="project-image" style="background-color: #4f46e5;"></div>
                     <div class="project-content">
-                        <h3 class="project-title">Intelligent Recommendation Engine</h3>
-                        <p>Developed a content-based and collaborative filtering recommendation system that increased user engagement by 32% for an e-commerce platform.</p>
+                        <h3 class="project-title">AI Agent Framework for Sanction Screening</h3>
+                        <p>Built an AI agent framework using GPT and Claude LLMs to screen potential sanction hits on real-time wire payments, disposing 60% of false positive hits with human in the loop.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Agentic AI</span>
+                            <span class="project-tag">LLMs</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Finance</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#">View Case Study →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image" style="background-color: #8b5cf6;"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">AI DueDiliBot for Investment Firm</h3>
+                        <p>Developed 'DueDiliBot' using PaLM API for backend processing and Pytesseract for OCR, enabling employees to upload and analyze PDF files efficiently saving 70% of their time.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">PaLM API</span>
+                            <span class="project-tag">Pytesseract</span>
+                            <span class="project-tag">Streamlit</span>
+                            <span class="project-tag">OCR</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#">View Demo →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image" style="background-color: #6366f1;"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Sales Anomaly Detection System</h3>
+                        <p>Applied K-means and isolation forest models to identify and analyze sales anomalies, processing 2 million records and incorporating weather and promotion data for a major retailer.</p>
                         <div class="project-tags">
                             <span class="project-tag">Machine Learning</span>
                             <span class="project-tag">Python</span>
-                            <span class="project-tag">AWS</span>
+                            <span class="project-tag">SQL</span>
+                            <span class="project-tag">Tableau</span>
                         </div>
                         <div class="project-links">
-                            <a href="javascript:void(0)">View Case Study →</a>
-                            <a href="javascript:void(0)">GitHub →</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card fade-in">
-                    <div class="project-image" style="background-color: #8b5cf6;"></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Computer Vision for Healthcare</h3>
-                        <p>Built a deep learning system that assists radiologists in detecting anomalies in X-ray images with 94% accuracy, reducing diagnosis time by 40%.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Computer Vision</span>
-                            <span class="project-tag">PyTorch</span>
-                            <span class="project-tag">Healthcare AI</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="javascript:void(0)">View Demo →</a>
-                            <a href="javascript:void(0)">Research Paper →</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card fade-in">
-                    <div class="project-image" style="background-color: #6366f1;"></div>
-                    <div class="project-content">
-                        <h3 class="project-title">NLP-Powered Customer Support</h3>
-                        <p>Implemented a conversational AI system that handles 65% of customer inquiries automatically, improving response time and customer satisfaction.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">NLP</span>
-                            <span class="project-tag">TensorFlow</span>
-                            <span class="project-tag">GCP</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="javascript:void(0)">View Case Study →</a>
-                            <a href="javascript:void(0)">Live Demo →</a>
+                            <a href="#">View Analysis →</a>
                         </div>
                     </div>
                 </div>
@@ -883,208 +713,111 @@
         <div class="container">
             <h2 class="section-title">Professional Experience</h2>
             <div class="timeline">
-                <div class="timeline-item fade-in">
-                    <div class="timeline-date">2022 - Present</div>
-                    <h3 class="timeline-title">Senior AI Engineer</h3>
-                    <div class="timeline-company">TechInnovate AI</div>
-                    <p>Lead a team of ML engineers in developing and deploying custom AI solutions for enterprise clients. Architected and implemented a distributed training pipeline that reduced model training time by 60%.</p>
+                <div class="timeline-item">
+                    <div class="timeline-date">July 2024 - Present</div>
+                    <h3 class="timeline-title">AI Engineer</h3>
+                    <div class="timeline-company">Bank of New York Mellon</div>
+                    <p>Designed and developed an AI agent framework using GPT and Claude LLMs to screen potential sanction hits on real-time wire payments. Created a framework with decision-making agents and a critique agent to evaluate decisions with the persona of a regulator, disposing 60% of false positive hits with human in the loop. Developed BNY's first AI apprentice called Mike for transaction queries and ticket creation.</p>
                 </div>
                 
-                <div class="timeline-item fade-in">
-                    <div class="timeline-date">2019 - 2022</div>
-                    <h3 class="timeline-title">Machine Learning Engineer</h3>
-                    <div class="timeline-company">DataVision Corp</div>
-                    <p>Designed and implemented computer vision algorithms for quality control in manufacturing. Developed an MLOps pipeline for continuous integration and deployment of ML models.</p>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jan 2023 - May 2024</div>
+                    <h3 class="timeline-title">Project: Sales Anomaly Detection</h3>
+                    <div class="timeline-company">American Eagle Outfitters</div>
+                    <p>Identified and analyzed sales anomalies using K-means and isolation forest models, uncovering underlying causes and aiming for a 1.5x increase in efficient decision making. Applied pre-processing techniques to 2 million records, appending weather and promotion data, tuning parameters for optimal performance, and visualizing anomalies.</p>
                 </div>
                 
-                <div class="timeline-item fade-in">
-                    <div class="timeline-date">2017 - 2019</div>
-                    <h3 class="timeline-title">AI Research Scientist</h3>
-                    <div class="timeline-company">InnovateAI Research Lab</div>
-                    <p>Conducted research on reinforcement learning algorithms for robotic control. Published 3 papers in top-tier AI conferences and contributed to open-source libraries.</p>
+                <div class="timeline-item">
+                    <div class="timeline-date">Aug 2021 - Aug 2023</div>
+                    <h3 class="timeline-title">Associate Software Developer</h3>
+                    <div class="timeline-company">YARA DIGITAL FARMING</div>
+                    <p>Accelerated backend development of Yara Connect app by integrating 7 new features and remodeling existing functionalities, resulting in 15% growth in user base. Optimized large databases for 9 countries by developing automation scripts and creating new APIs, reducing processing time by 80%. Resolved 50+ critical user experience issues through cross-functional collaboration, receiving a Duct Tape award for these efforts.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Jun 2019 - Aug 2022</div>
+                    <h3 class="timeline-title">Student Research Assistant</h3>
+                    <div class="timeline-company">HUT LABS</div>
+                    <p>Coordinated teams to design and implement solutions for farm security problems and to develop a new deep learning model for Indian traffic sign detection with 97.08% precision. Became a semifinalist in the Cisco global solver problem challenge 2019 and received the Aspiring Minds Motivational Award for contributions to humanitarian technology.</p>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- Publications Section -->
     <section id="publications" class="publications">
         <div class="container">
             <h2 class="section-title">Publications & Articles</h2>
             
-            <div class="pub-card fade-in">
-                <span class="pub-source">Google Research</span>
-                <h3 class="pub-title">Advances in Self-Supervised Learning for Time-Series Data</h3>
-                <p>A novel approach to pre-training deep learning models on unlabeled time-series data, achieving state-of-the-art results on multiple downstream tasks with minimal labeled examples.</p>
-                <div class="pub-meta">
-                    <span class="pub-date">Published: November 2023</span>
-                    <div class="pub-metrics">
-                        <span class="pub-metric">Citations: 47</span>
-                        <span class="pub-metric">Downloads: 1,243</span>
-                    </div>
-                </div>
-                <a href="javascript:void(0)" class="cert-link">Read Paper →</a>
+            <div class="pub-card">
+                <span class="pub-source">ELSEVIER Scopus Q1 Journal</span>
+                <h3 class="pub-title">Indian Traffic Sign Detection and Recognition using Deep Learning</h3>
+                <p>Research on developing an effective deep learning model for detecting and recognizing traffic signs on Indian roads, achieving 97.08% precision. The model addresses the challenges specific to Indian traffic signage and road conditions.</p>
+                <a href="#" class="project-links">Read Paper →</a>
             </div>
             
-            <div class="pub-card fade-in">
-                <span class="pub-source">Medium</span>
-                <h3 class="pub-title">Implementing Transformer Architectures for Production: Lessons Learned</h3>
-                <p>A practical guide to optimizing transformer-based models for production environments, covering techniques for memory efficiency, inference speed, and model pruning.</p>
-                <div class="pub-meta">
-                    <span class="pub-date">Published: March 2023</span>
-                    <div class="pub-metrics">
-                        <span class="pub-metric">Reads: 15.3K</span>
-                        <span class="pub-metric">Claps: 4.2K</span>
-                    </div>
-                </div>
-                <a href="javascript:void(0)" class="cert-link">Read Article →</a>
+            <div class="pub-card">
+                <span class="pub-source">IEEE Xplore</span>
+                <h3 class="pub-title">Design and Implementation of Junction Boxes for Preventing Animal Attacks in Farms</h3>
+                <p>Technical paper documenting the design and implementation of a solution to protect farms from animal attacks. This research was part of a humanitarian technology project that received funding from IEEE.</p>
+                <a href="#" class="project-links">Read Paper →</a>
             </div>
             
-            <div class="pub-card fade-in">
+            <div class="pub-card">
                 <span class="pub-source">Medium</span>
-                <h3 class="pub-title">Ethical Considerations in Deploying AI Systems: A Framework</h3>
-                <p>An exploration of the ethical challenges in AI deployment and a proposed framework for evaluating AI systems across dimensions of fairness, accountability, transparency, and privacy.</p>
-                <div class="pub-meta">
-                    <span class="pub-date">Published: August 2022</span>
-                    <div class="pub-metrics">
-                        <span class="pub-metric">Reads: 22.7K</span>
-                        <span class="pub-metric">Claps: 5.8K</span>
-                    </div>
-                </div>
-                <a href="javascript:void(0)" class="cert-link">Read Article →</a>
+                <h3 class="pub-title">AI Ethics in Focus: Navigating the Challenges of Facial Recognition, Deepfakes, and Data Bias</h3>
+                <p>A deep dive into the ethical challenges posed by modern AI technologies, examining how facial recognition, deepfakes, and data bias impact society. This article explores the balance between technological advancement and ethical responsibility in AI development.</p>
+                <span class="pub-date">Published: March 2024</span>
+                <a href="#" target="_blank" class="project-links">Read Article →</a>
+            </div>
+            
+            <div class="pub-card">
+                <span class="pub-source">Medium</span>
+                <h3 class="pub-title">Effects of AI or Analytics in General in a Developed Economy vs in an Emerging Economy</h3>
+                <p>A comparative analysis examining how AI and analytics technologies have differing impacts in developed versus emerging economies. This article highlights the unique challenges, opportunities, and considerations for implementing AI solutions across different economic contexts.</p>
+                <span class="pub-date">Published: February 2024</span>
+                <a href="#" target="_blank" class="project-links">Read Article →</a>
             </div>
         </div>
     </section>
-    
-    <!-- Certifications Section -->
-    <section id="certifications" class="certifications">
-        <div class="container">
-            <h2 class="section-title">Certifications</h2>
-            <div class="cert-grid">
-                <div class="cert-card fade-in">
-                    <div class="cert-logo">
-                        <div>GCP</div>
-                    </div>
-                    <div class="cert-content">
-                        <h3 class="cert-name">Professional Machine Learning Engineer</h3>
-                        <div class="cert-issuer">Google Cloud</div>
-                        <p>Validates expertise in designing, building, and productionizing ML models to solve business challenges using Google Cloud technologies.</p>
-                        <div class="cert-date">Issued: Jan 2023 • Expires: Jan 2026</div>
-                        <a href="javascript:void(0)" class="cert-link">View Certificate →</a>
-                    </div>
-                </div>
-                
-                <div class="cert-card fade-in">
-                    <div class="cert-logo">
-                        <div>AWS</div>
-                    </div>
-                    <div class="cert-content">
-                        <h3 class="cert-name">Certified Machine Learning Specialty</h3>
-                        <div class="cert-issuer">Amazon Web Services</div>
-                        <p>Demonstrates advanced ability to design, implement, deploy, and maintain ML solutions for given business problems.</p>
-                        <div class="cert-date">Issued: Mar 2022 • Expires: Mar 2025</div>
-                        <a href="#" class="cert-link">View Certificate →</a>
-                    </div>
-                </div>
-                
-                <div class="cert-card fade-in">
-                    <div class="cert-logo">
-                        <div>DS</div>
-                    </div>
-                    <div class="cert-content">
-                        <h3 class="cert-name">Deep Learning Specialization</h3>
-                        <div class="cert-issuer">DeepLearning.AI</div>
-                        <p>Comprehensive specialization covering neural networks, optimization algorithms, CNN, RNN, and transformers.</p>
-                        <div class="cert-date">Issued: Aug 2020</div>
-                        <a href="#" class="cert-link">View Certificate →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2 class="section-title">What Colleagues Say</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card fade-in">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"Alex is one of the most talented ML engineers I've had the pleasure to work with. Their ability to quickly grasp complex problems and implement elegant solutions is outstanding. They not only deliver high-quality work but also elevate the entire team's capabilities."</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">JL</div>
-                            <div class="testimonial-info">
-                                <h4>Dr. Jennifer Lee</h4>
-                                <div class="testimonial-position">Director of AI, TechInnovate AI</div>
-                                <div class="testimonial-source">Recommendation via LinkedIn</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card fade-in">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"Working with Alex on our computer vision project was an incredible experience. Their technical expertise in deep learning architectures and practical approach to deployment challenges saved us months of development time. But what truly sets Alex apart is their commitment to ethical AI development."</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">MR</div>
-                            <div class="testimonial-info">
-                                <h4>Michael Rodriguez</h4>
-                                <div class="testimonial-position">Lead Data Scientist, HealthTech Solutions</div>
-                                <div class="testimonial-source">Recommendation via LinkedIn</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card fade-in">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"Alex mentored me when I was transitioning into AI engineering, and I couldn't have asked for a better guide. They have a rare gift for making complex concepts accessible without oversimplification. Their technical brilliance is matched by their patience and genuine desire to help others succeed in the field."</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">SP</div>
-                            <div class="testimonial-info">
-                                <h4>Sarah Patel</h4>
-                                <div class="testimonial-position">ML Engineer, DataVision Corp</div>
-                                <div class="testimonial-source">Recommendation via LinkedIn</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-
     
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
             <div class="contact-content">
-                <div class="contact-info fade-in">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-item-icon">P</div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1(412)626-8685</p>
+                        </div>
+                    </div>
                     <div class="contact-item">
                         <div class="contact-item-icon">@</div>
                         <div>
                             <h4>Email</h4>
-                            <p>alex.chen@example.com</p>
+                            <p>kondareddy.th@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-item-icon">L</div>
                         <div>
                             <h4>LinkedIn</h4>
-                            <p>linkedin.com/in/alex-chen-ai</p>
+                            <p>linkedin.com/in/kondareddy-t/</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-item-icon">L</div>
                         <div>
                             <h4>Location</h4>
-                            <p>San Francisco, CA</p>
+                            <p>Pittsburgh, PA</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="contact-form fade-in">
+                <div class="contact-form">
                     <form>
                         <div class="form-group">
                             <label for="name" class="form-label">Name</label>
@@ -1109,69 +842,53 @@
     <footer>
         <div class="container">
             <div class="social-links">
-                <a href="javascript:void(0)" class="social-link">G</a>
-                <a href="javascript:void(0)" class="social-link">L</a>
-                <a href="javascript:void(0)" class="social-link">T</a>
-                <a href="javascript:void(0)" class="social-link">M</a>
+                <a href="#" class="social-link">G</a>
+                <a href="#" class="social-link">L</a>
+                <a href="#" class="social-link">S</a>
+                <a href="#" class="social-link">P</a>
             </div>
-            <p>&copy; 2025 Alex Chen. All rights reserved.</p>
+            <p>&copy; 2025 Kondareddy Thanigundala. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Simple animation on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const fadeElements = document.querySelectorAll('.fade-in');
+        // Smooth scrolling function
+        function smoothScroll(targetId) {
+            const targetSection = document.getElementById(targetId);
             
-            function checkFade() {
-                fadeElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 150;
-                    
-                    if (elementTop < window.innerHeight - elementVisible) {
-                        element.style.opacity = '1';
-                        element.style.transform = 'translateY(0)';
-                    }
-                });
-            }
-            
-            // Set initial styles
-            fadeElements.forEach(element => {
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(20px)';
-                element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-            });
-            
-            // Check on load
-            checkFade();
-            
-            // Check on scroll
-            window.addEventListener('scroll', checkFade);
-        });
-
-        // Smooth scrolling for section navigation
-        function scrollToSection(sectionId) {
-            event.preventDefault();
-            const section = document.getElementById(sectionId);
-            if (section) {
+            if (targetSection) {
+                const headerOffset = 80; // Account for fixed header
+                const elementPosition = targetSection.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
                 window.scrollTo({
-                    top: section.offsetTop - 80, // Offset for the fixed header
+                    top: offsetPosition,
                     behavior: 'smooth'
                 });
+                
+                // Update URL without reloading the page - with error handling
+                try {
+                    history.pushState(null, null, '#' + targetId);
+                } catch (e) {
+                    // Silent fail for preview environments where pushState isn't allowed
+                    console.log("Note: URL hash not updated due to preview environment restrictions");
+                }
             }
         }
-
-        // Handle hero button click
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactButton = document.querySelector('.hero .btn');
-            if (contactButton) {
-                contactButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    scrollToSection('contact');
-                });
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobile-nav');
+            mobileNav.classList.toggle('active');
+            
+            // Prevent scrolling when mobile menu is open
+            if (mobileNav.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
             }
-        });
-
+        }
+        
         // Form submission handling
         const contactForm = document.querySelector('.contact-form form');
         if (contactForm) {
